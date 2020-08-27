@@ -27,6 +27,7 @@ public class DisplayGUI {
 					String[] topSearches = results.getTop5Searches();
 					if(topSearches[0] != null) { 
 						JLabel topSearchesLabel = displayTopSearches(topSearches, 100, 550, 800, 20); 
+						System.out.println("heelo");
 					}
 				} catch(Exception a) {
 					JOptionPane.showMessageDialog(null, "Please enter a valid characters");
