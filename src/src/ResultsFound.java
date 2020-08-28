@@ -10,17 +10,22 @@ import java.util.regex.Pattern;
  * Store results of the user search into categories: Law, Case Law, Articles
  * Allow user to save results to a download-able file
  */
-public class ResultsFound {
+public class ResultsFound extends Crawler {
+	public ResultsFound(String fName) {
+		super(fName);
+	}
+
 	HashMap<Integer, String> allSearches = new HashMap<>();
 	HashMap<Integer, Integer> timesSearched = new HashMap<>();
 	static int numberOfKeys = 0;
-	String search ;
-	ArrayList<String> foundMatch = new ArrayList<>();
-	ArrayList<Integer> indexOfFound = new ArrayList<>();
+	//String search ;
+	//ArrayList<String> foundMatch = new ArrayList<>();
+	//ArrayList<Integer> indexOfFoundWord = new ArrayList<>();
+	//ArrayList<Integer> indexOfFoundLine = new ArrayList<>();
 	
-	public ResultsFound() {
-		
-	}
+	File file = openFile();
+	
+
 
 	/**
 	 * Add the current string searched to the HAshMap, to keep a record of searched
@@ -46,7 +51,8 @@ public class ResultsFound {
 			numberOfKeys++;
 		}
 	}
-
+	
+	@Override
 	/**
 	 * Find the top five searches save them to an Array
 	 * @return String[]
@@ -76,7 +82,40 @@ public class ResultsFound {
 	}
 	
 	/**
-	 * Separate the user enetered string
+	 * remove all punctuation and convert all chars to lower case
+	 */
+	public void cleanString() {
+		search = search.toLowerCase();
+		search = search.replaceAll("\\p{Punct}", "");
+		
+	}
+	@Override
+	/**
+	 * 
+	 */
+	public void saveFormatString(String searchS) {
+		if(searchS != null) {
+			addSearch(searchS);
+			getTop5Searches();
+			cleanString();
+			System.out.println(searchS);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param line
+	 */
+	public int findPhrase(String line) {
+		if(line == null) {return 0;}
+		if(line.contains(search)) {
+				return 1;
+		}
+		return 0;
+	}
+	
+	/**
+	 * Separate the user-entered string
 	 * @return String[]
 	 */
 	public String[] sepSearchString(String searchStr) {
@@ -102,36 +141,60 @@ public class ResultsFound {
 		int foundAMatch = 0;
 		String[] splited = sepSearchString(search);
 		if(splited == null) {System.err.println("no string to split in sepSerachString()"); return -1;}
-
 		for(String string : splited) {
 			if(string.equals(wordInFile)) {
-				System.out.println(string);
 				foundAMatch++;
 			}
 		}
 		return foundAMatch ;
 	}
+	@Override
+	/**
+	 * Scan the file:
+	 * compare the whole search string to the .nextLine() in the file
+	 * @param searchS
+	 */
+	public ArrayList<Integer> searchForPhrase(String searchS) {
+		ArrayList<Integer> indexOfFoundLine = new ArrayList<>();
+		int lineNum = 0;
+		try {
+			Scanner scanFile = new Scanner(file);
+			while(scanFile.hasNextLine()) {
+				String nextL = scanFile.nextLine();
+				nextL = nextL.toLowerCase();
+				nextL = nextL.replaceAll("\\p{Punct}", "");
+				int numFound = findPhrase(nextL);
+				if(numFound != 0) {
+					indexOfFoundLine.add(lineNum);
+				}
+				lineNum++;
+			}
+			scanFile.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return indexOfFoundLine;
+	}
 	
-	
-	public void gatherResults(String searchS ) {
+	@Override
+	/**
+	 * Scan the file:
+	 * compare each word in the search string to the .next() word in the file
+	 * @param searchS
+	 */
+	public ArrayList<Integer> searchEachWord(String searchS) {
+		ArrayList<Integer> indexOfFoundWord = new ArrayList<>();
 		int charNum = 0;
 		try {
-			Crawler crawl = new Crawler();
-			File file = crawl.openFile("roeVwade.txt");
+			
 			Scanner scanFile = new Scanner(file);
-			if(searchS != null) {
-				addSearch(searchS);
-				getTop5Searches();
-				//sepSearchString(searchS);
-			}
 			while(scanFile.hasNext()) {
 				String nextL = scanFile.next();
-				//System.out.println(nextL);
+				nextL = nextL.toLowerCase();
+				nextL = nextL.replaceAll("\\p{Punct}", "");
 				int numFound = findWord(nextL);
 				if(numFound != 0) {
-					//System.out.println(numFound + " num found");
-					indexOfFound.add(charNum);
-					//System.out.println("index line" + indexOfFound.get(lineNum));
+					indexOfFoundWord.add(charNum);
 				}
 				charNum++;
 			}
@@ -139,7 +202,7 @@ public class ResultsFound {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		
+		return indexOfFoundWord;
 	}
 	
 }
