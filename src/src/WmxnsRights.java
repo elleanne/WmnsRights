@@ -8,9 +8,9 @@ import java.util.Scanner;
 
 import org.jsoup.*;
 
-
-/*
- * Contains main method
+/**
+ * Contains main method and creates window for user to start search
+ * @author eacrouther
  */
 public class WmxnsRights {
 	static Integer[] numOfInstancesLine_Word = new Integer[2];
@@ -21,7 +21,7 @@ public class WmxnsRights {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CreateFrame f = new CreateFrame();
+					//CreateFrame f = new CreateFrame();
 					DisplayGUI g = new DisplayGUI();
 					Integer[] numOfInstances = g.createInitial();
 					
@@ -30,20 +30,6 @@ public class WmxnsRights {
 				}
 			}
 		});
-		
-		/*EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UserInterface u = new UserInterface();
-					u.wait();
-					// Should change this to that a ranked array[] of the best to worst articles is passed to u.newWindow
-					u.newWindow() ;
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});*/
 		
 	}
 }

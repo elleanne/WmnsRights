@@ -6,9 +6,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/*
+/**
  * Store results of the user search into categories: Law, Case Law, Articles
  * Allow user to save results to a download-able file
+ * @author eacrouther
  */
 public class ResultsFound extends Crawler {
 	public ResultsFound(String fName) {
@@ -22,11 +23,8 @@ public class ResultsFound extends Crawler {
 	//ArrayList<String> foundMatch = new ArrayList<>();
 	//ArrayList<Integer> indexOfFoundWord = new ArrayList<>();
 	//ArrayList<Integer> indexOfFoundLine = new ArrayList<>();
-	
 	File file = openFile();
 	
-
-
 	/**
 	 * Add the current string searched to the HAshMap, to keep a record of searched
 	 * strings and the number of times they were searched
@@ -89,9 +87,12 @@ public class ResultsFound extends Crawler {
 		search = search.replaceAll("\\p{Punct}", "");
 		
 	}
+	
 	@Override
 	/**
-	 * 
+	 * add the search string to the arrays to store them in the history
+	 * clean the string
+	 * @param searchS
 	 */
 	public void saveFormatString(String searchS) {
 		if(searchS != null) {
@@ -103,7 +104,7 @@ public class ResultsFound extends Crawler {
 	}
 	
 	/**
-	 * 
+	 * Find the search phrase in .nextLine() from file
 	 * @param line
 	 */
 	public int findPhrase(String line) {

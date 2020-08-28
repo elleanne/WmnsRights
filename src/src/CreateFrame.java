@@ -5,6 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+/**
+ * Contains methods to create all objects needed for the JFrames in #DisplayGUI and #UserInterface
+ * @author eacrouther
+ */
 public class CreateFrame {
 	Color peach = new Color(255, 160, 122);
 	
@@ -77,7 +81,10 @@ public class CreateFrame {
 	}
 	
 	/**
-	 * 
+	 * Calculates if a file has significant results -> probably should move this to ResultsFound
+	 * creates label for displaying results
+	 * Future: create link to document 
+	 * @param numOfInstances
 	 * @param font
 	 * @param fontSize
 	 * @param x
@@ -87,10 +94,7 @@ public class CreateFrame {
 	 * @return
 	 */
 	public JLabel makeResultsLabel(Integer[] numOfInstances, String font, int fontSize, int x, int y, int w, int h) {
-		String fileN  = null;
-		//System.out.println(results.search);
-		//String [] searchA = search.split(" ");
-		
+		String fileN  = null;		
 		
 		if((numOfInstances[0] + numOfInstances[1]) != 0) {
 			System.out.println("hllo newWindow");
@@ -108,7 +112,7 @@ public class CreateFrame {
 			fileN = "-\t" +  results.filename + " contains definite results.\t The phrase appears " + (numOfInstances[0]/100) + " times.";
 		}
 		else {
-			fileN = null;
+			fileN = "No files found for that search";
 		}
 		
 		JLabel results = new JLabel(fileN);

@@ -8,8 +8,9 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-/*
+/**
  * Display initial search bar, most common searches, and results of search
+ * @author eacrouther
  */
 public class DisplayGUI extends CreateFrame {
 	private JFrame initialFrame = new JFrame();
@@ -67,24 +68,22 @@ public class DisplayGUI extends CreateFrame {
 					ArrayList<Integer> indexOfFoundWord = results.searchEachWord(searching);
 					if(indexOfFoundLine != null) {
 						numOfInstances[0] = indexOfFoundLine.size();
-						System.out.println(numOfInstances[0]);
 					}
 					
 					if(indexOfFoundWord != null) {
 						numOfInstances[1] = indexOfFoundWord.size();
-						System.out.println(numOfInstances[1]);
 					}
-					
+					/*Create new window to display search results*/
 					UserInterface u = new UserInterface();
-					
 					u.newWindow(numOfInstances, searching);
-					System.out.println(numOfInstances[0] + " 77 " + numOfInstances[1]);
-				} catch(Exception a) {
-					JOptionPane.showMessageDialog(null, "Please enter a valid characters");
+					 
+				} catch(Exception a) { // Improvements: separate try blocks?
+					JOptionPane.showMessageDialog(null, "Please enter a valid characters"); // exception will be called when any error in the try block occurs
 				}
 			}
 		});
-		return numOfInstances;
+		
+		return numOfInstances; // currently not used, but might in the future
 	}
 	
 

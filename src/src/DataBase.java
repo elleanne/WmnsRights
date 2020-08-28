@@ -4,8 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ * Create database to hold most common searches
+ * @author eacrouther
+ */
 public class DataBase {
-	public Connection con = null;
+	/*public Connection con = null;
 	
 	public DataBase() {
 		try {
@@ -35,5 +39,5 @@ public class DataBase {
 		if (con != null || !con.isClosed()) {
 			con.close();
 		}
-	}
+	}*/
 }

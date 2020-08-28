@@ -3,8 +3,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
- * Crawl the LOC Law Library for the user-inputed search words
+/**
+ * Currently: open file
+ * Future: Crawl the LOC Law Library for the user-inputed search words
+ * @author eacrouther
  */
 public class Crawler {
 	String filename;
@@ -23,7 +25,9 @@ public class Crawler {
 		File file = new File(this.filename);
 		return file;
 	}
-	
+	/**
+	 * close file? 
+	 */
 	public void closeFile() {
 		
 	}
