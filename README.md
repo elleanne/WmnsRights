@@ -8,10 +8,15 @@ The app  will crawl the Library of Congress' Law Library to provide updated info
 
 Current Goals: Create basic search framework, GUI, return search results
 Current functionality: The program searches a .txt file, roeVwade.txt for a user-entered string in a GUI window. A new window will populate when the search is complete to display the results. 
-
+Initial Window: 
 ![](src/src/initialWindow.jpg)
+******************************
+Search Window:
+ -"abortion in Texas" results
 ![](src/src/texasSearchRe.jpg)
+ -"abortion in California" results
 ![](src/src/caliSearchRe.jpg)
+ -"hello" results
 ![](src/src/helloSearchRe.jpg)
 
 Next steps: -Improve the search algorithims
