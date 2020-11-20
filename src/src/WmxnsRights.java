@@ -18,7 +18,7 @@ public class WmxnsRights {
 	public static void main(String[] args) {
 
 		/*Initialize search window*/
-		EventQueue.invokeLater(new Runnable() {
+		.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					//CreateFrame f = new CreateFrame();
