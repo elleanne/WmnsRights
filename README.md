@@ -1,10 +1,10 @@
-# WmxnsRights
+# WmnsRights
 
 *Work in Progress*
   
-WmxnsRights- a search app to help womxn understand and exercise their rights.              
+WmnsRights- a search app to help women understand and exercise their rights.              
 
-The app  will crawl the Library of Congress' Law Library to provide updated information on womxn's rights. The goal is to give womxn a tool that helps them understand and exercise their rights, especially as it pertains to their health and careers.
+The app  will crawl the Library of Congress' Law Library to provide updated information on women's rights. The goal is to give women a tool that helps them understand and exercise their rights, especially as it pertains to their health and careers.
 
 Current Goals: Create basic search framework, GUI, return search results
 Current functionality: The program searches a .txt file, roeVwade.txt for a user-entered string in a GUI window. A new window will populate when the search is complete to display the results. 
@@ -36,7 +36,7 @@ Future Direction:
 MavenDependencies: jsoup1.13.1.jar
 
 Classes:
-  WmxnsRights - contains main(), call the initial window to start the app
+  WmnsRights - contains main(), call the initial window to start the app
   CreateFrame - contains functions to automate all objects needed for each frame
   DisplayGUI extends CreateFrame - creates the initial window where the user can enter the search
   UserInterface extends CreateFrame - creates all new windows (currently, just the search results window)
