@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>WmnsRights Search Results</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'search: ' + ${search.searchString}" />
+
+<!-- Display results here by using ${search.listOfFoundResults}} -->
+
+<a href="/">Submit another search</a>
+</body>
+</html>

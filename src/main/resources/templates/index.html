@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>WmnsRights</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Search to know your rights!</h1>
+
+<!-- Form to submit search. Saved in object SearchForm in SearchController -->
+<form action="#" th:action="@{/index}" th:object="${search}" method="post">
+    <p>Search: <input type="text" th:field="*{searchString}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
