@@ -203,7 +203,12 @@ public class ResultsFound extends Crawler {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		return indexOfFoundWord;
+		returargs)n indexOfFoundWord;
+	}
+	
+	// adding main to test github actions
+	public static void main(String[] args) {
+		ResultsFound rf = new ResultsFound("roevwade.txt");	
 	}
 	
 }
