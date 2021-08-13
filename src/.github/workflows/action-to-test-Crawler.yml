@@ -1,4 +1,4 @@
-name: GitHub Actions Demo
+name: Workflows folder in src
 on: [push]
 jobs:
   Explore-GitHub-Actions:
