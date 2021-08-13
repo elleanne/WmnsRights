@@ -49,5 +49,10 @@ public class Crawler {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	// adding main to test github actions
+	public static void main(String[] args) {
+		Crawler cw = new Crawler("roevwade.txt");
+	}
 
 }
