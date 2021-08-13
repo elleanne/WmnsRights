@@ -17,6 +17,13 @@ public class Crawler {
 	public Crawler(String fName) {
 		this.filename = fName;
 	}
+	
+	// adding main to test github actions
+	public static void main(String[] args) {
+		Crawler cw = new Crawler("src/roeVwade.txt");
+		System.out.println("Crawler made");
+	}
+	
 	/**
 	 * open file
 	 * @param fileName
@@ -50,9 +57,6 @@ public class Crawler {
 		
 	}
 	
-	// adding main to test github actions
-	public static void main(String[] args) {
-		Crawler cw = new Crawler("src/roeVwade.txt");
-	}
+
 
 }
