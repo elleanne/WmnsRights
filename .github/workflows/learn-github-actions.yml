@@ -16,8 +16,8 @@ jobs:
           ls ${{ github.workspace }}
       - name: Compile program
         run: |
-          javac WmnsRights.java
+          javac src/src/WmxnsRights.java
       - name: run program
         run: |
-          java WmnsRights
+          java WmxnsRights
       - run: echo "🍏 This job's status is ${{ job.status }}."
