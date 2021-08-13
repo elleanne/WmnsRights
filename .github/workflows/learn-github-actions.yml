@@ -19,5 +19,5 @@ jobs:
           javac src/src/Crawler.java
       - name: run program
         run: |
-          java src/src/Crawler
+          java Crawler
       - run: echo "🍏 This job's status is ${{ job.status }}."
