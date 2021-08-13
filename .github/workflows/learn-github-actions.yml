@@ -14,4 +14,10 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Compile program
+        run: |
+          javac WmnsRights.java
+      - name: run program
+        run: |
+          java WmnsRights
       - run: echo "🍏 This job's status is ${{ job.status }}."
