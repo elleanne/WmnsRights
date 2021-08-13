@@ -208,7 +208,7 @@ public class ResultsFound extends Crawler {
 	
 	// adding main to test github actions
 	public static void main(String[] args) {
-		ResultsFound rf = new ResultsFound("roevwade.txt");	
+		ResultsFound rf = new ResultsFound("src/roeVwade.txt");	
 	}
 	
 }
