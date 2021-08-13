@@ -16,8 +16,8 @@ jobs:
           ls ${{ github.workspace }}
       - name: Compile program
         run: |
-          javac TestActions.java
+          javac src/src/Crawler.java
       - name: run program
         run: |
-          java TestActions
+          java Crawler
       - run: echo "🍏 This job's status is ${{ job.status }}."
