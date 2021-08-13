@@ -52,7 +52,7 @@ public class Crawler {
 	
 	// adding main to test github actions
 	public static void main(String[] args) {
-		Crawler cw = new Crawler("roevwade.txt");
+		Crawler cw = new Crawler("src/roeVwade.txt");
 	}
 
 }
